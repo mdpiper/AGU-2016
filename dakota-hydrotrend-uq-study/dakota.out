@@ -1,0 +1,331 @@
+Writing new restart file dakota.rst
+
+>>>>> Executing environment.
+
+>>>>> Running polynomial_chaos iterator.
+
+>>>>> Building global_projection_orthogonal_polynomial approximations.
+
+Number of Gauss points per variable: { 4 4 }
+Total number of integration points: 16
+
+------------------------------
+Begin    CSDMS Evaluation    1
+------------------------------
+Parameters for evaluation 1:
+                      1.3008295533e+01 starting_mean_annual_temperature
+                      1.4277727377e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 1:
+Active set vector = { 1 }
+                      3.2264022527e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    2
+------------------------------
+Parameters for evaluation 2:
+                      1.3790028435e+01 starting_mean_annual_temperature
+                      1.4277727377e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 2:
+Active set vector = { 1 }
+                      3.5909002114e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDDAKOTA execution time in seconds:
+  Total CPU        =       0.19 [parent =    0.19497, child =   -0.00497]
+  Total wall clock =    195.001
+emperature
+                      1.4277727377e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 3:
+Active set vector = { 1 }
+                      4.1009030231e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    4
+------------------------------
+Parameters for evaluation 4:
+                      1.5591704467e+01 starting_mean_annual_temperature
+                      1.4277727377e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 4:
+Active set vector = { 1 }
+                      4.5234057526e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    5
+------------------------------
+Parameters for evaluation 5:
+                      1.3008295533e+01 starting_mean_annual_temperature
+                      1.5320037913e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 5:
+Active set vector = { 1 }
+                      3.3288899482e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    6
+------------------------------
+Parameters for evaluation 6:
+                      1.3790028435e+01 starting_mean_annual_temperature
+                      1.5320037913e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 6:
+Active set vector = { 1 }
+                      3.7029413793e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    7
+------------------------------
+Parameters for evaluation 7:
+                      1.4809971565e+01 starting_mean_annual_temperature
+                      1.5320037913e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 7:
+Active set vector = { 1 }
+                      4.2273166464e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    8
+------------------------------
+Parameters for evaluation 8:
+                      1.5591704467e+01 starting_mean_annual_temperature
+                      1.5320037913e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 8:
+Active set vector = { 1 }
+                      4.6630504878e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation    9
+------------------------------
+Parameters for evaluation 9:
+                      1.3008295533e+01 starting_mean_annual_temperature
+                      1.6679962087e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 9:
+Active set vector = { 1 }
+                      3.4959714828e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   10
+------------------------------
+Parameters for evaluation 10:
+                      1.3790028435e+01 starting_mean_annual_temperature
+                      1.6679962087e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 10:
+Active set vector = { 1 }
+                      3.8881728207e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   11
+------------------------------
+Parameters for evaluation 11:
+                      1.4809971565e+01 starting_mean_annual_temperature
+                      1.6679962087e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 11:
+Active set vector = { 1 }
+                      4.4324364882e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   12
+------------------------------
+Parameters for evaluation 12:
+                      1.5591704467e+01 starting_mean_annual_temperature
+                      1.6679962087e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 12:
+Active set vector = { 1 }
+                      4.8857784547e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   13
+------------------------------
+Parameters for evaluation 13:
+                      1.3008295533e+01 starting_mean_annual_temperature
+                      1.7722272623e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 13:
+Active set vector = { 1 }
+                      3.5949707168e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   14
+------------------------------
+Parameters for evaluation 14:
+                      1.3790028435e+01 starting_mean_annual_temperature
+                      1.7722272623e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 14:
+Active set vector = { 1 }
+                      3.9923869024e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   15
+------------------------------
+Parameters for evaluation 15:
+                      1.4809971565e+01 starting_mean_annual_temperature
+                      1.7722272623e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 15:
+Active set vector = { 1 }
+                      4.5495750955e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+
+------------------------------
+Begin    CSDMS Evaluation   16
+------------------------------
+Parameters for evaluation 16:
+                      1.5591704467e+01 starting_mean_annual_temperature
+                      1.7722272623e+00 total_annual_precipitation
+
+blocking fork: dakota_run_component params.in results.out
+
+Active response data for CSDMS evaluation 16:
+Active set vector = { 1 }
+                      5.0144073192e+00 channel_exit_water_sediment~suspended__mass_flow_rate
+
+
+Constructing global approximations with no anchor, 16 DACE samples, and 0 reused points.
+
+<<<<< global_projection_orthogonal_polynomial approximation builds completed.
+
+NonD random Samples = 10000 Seed (user-specified) = 17
+Beginning Approximate Fn Evaluations...
+<<<<< Function evaluation summary (CSDMS): 16 total (16 new, 0 duplicate)
+-----------------------------------------------------------------------------
+Coefficients of Polynomial Chaos Expansion for channel_exit_water_sediment~suspended__mass_flow_rate:
+        coefficient   u1   u2
+        ----------- ---- ----
+   4.0719893032e+00   P0   P0
+   7.8900378127e-01   P1   P0
+   3.2942727592e-02   P2   P0
+   2.9449361178e-03   P3   P0
+   2.5661385864e-01   P0   P1
+   4.2284879786e-02   P1   P1
+   2.1558804036e-03   P2   P1
+   1.1368162579e-03   P3   P1
+  -4.3129038473e-03   P0   P2
+  -2.0575067525e-03   P1   P2
+   7.3663620017e-04   P2   P2
+  -7.6263009018e-04   P3   P2
+  -2.5008884531e-02   P0   P3
+  -3.4800269808e-03   P1   P3
+   2.1305571501e-03   P2   P3
+  -1.4363435475e-03   P3   P3
+-----------------------------------------------------------------------------
+Statistics derived analytically from polynomial expansion:
+
+Moment-based statistics for each response function:
+                            Mean           Std Dev          Skewness          Kurtosis
+channel_exit_water_sediment~suspended__mass_flow_rate
+  expansion:    4.0719893032e+00  4.7955257736e-01
+  integration:  4.0719893032e+00  4.7955257736e-01  1.2606734163e-01 -9.6880962794e-01
+
+Covariance matrix for response functions:
+[[  2.2997067445e-01 ]] 
+
+Local sensitivities for each response function evaluated at uncertain variable means:
+channel_exit_water_sediment~suspended__mass_flow_rate:
+ [  5.2336210527e-01  1.4732358155e+00 ] 
+
+Global sensitivity indices for each response function:
+channel_exit_water_sediment~suspended__mass_flow_rate Sobol' indices:
+                                  Main             Total
+                      9.0327722461e-01  9.0414737177e-01 starting_mean_annual_temperature
+                      9.5852628233e-02  9.6722775385e-02 total_annual_precipitation
+                           Interaction
+                      8.7014715190e-04 starting_mean_annual_temperature total_annual_precipitation 
+
+Statistics based on 10000 samples performed on polynomial expansion:
+
+Probability Density Function (PDF) histograms for each response function:
+PDF for channel_exit_water_sediment~suspended__mass_flow_rate:
+          Bin Lower          Bin Upper      Density Value
+          ---------          ---------      -------------
+   3.1229032124e+00   3.3340128274e+00   2.3637009619e-01
+   3.3340128274e+00   3.4448039674e+00   4.5129962571e-01
+   3.4448039674e+00   3.7895111376e+00   6.6723300201e-01
+   3.7895111376e+00   4.0581834029e+00   6.3274115688e-01
+   4.0581834029e+00   4.3206201060e+00   6.4777524640e-01
+   4.3206201060e+00   4.7192608765e+00   5.7696055456e-01
+   4.7192608765e+00   4.8521168549e+00   3.7634738471e-01
+   4.8521168549e+00   5.1505539782e+00   1.6787455745e-01
+
+Level mappings for each response function:
+Cumulative Distribution Function (CDF) for channel_exit_water_sediment~suspended__mass_flow_rate:
+     Response Level  Probability Level  Reliability Index  General Rel Index
+     --------------  -----------------  -----------------  -----------------
+   3.3340128274e+00   5.0000000000e-02
+   3.4448039674e+00   1.0000000000e-01
+   3.7895111376e+00   3.3000000000e-01
+   4.0581834029e+00   5.0000000000e-01
+   4.3206201060e+00   6.7000000000e-01
+   4.7192608765e+00   9.0000000000e-01
+   4.8521168549e+00   9.5000000000e-01
+-----------------------------------------------------------------------------
+
+<<<<< Iterator polynomial_chaos completed.
+<<<<< Environment execution completed.
