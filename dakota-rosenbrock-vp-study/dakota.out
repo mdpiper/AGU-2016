@@ -1,0 +1,111 @@
+Writing new restart file dakota.rst
+
+>>>>> Executing environment.
+
+>>>>> Running vector_parameter_study iterator.
+
+Vector parameter study from
+                     -3.0000000000e-01
+                      2.0000000000e-01
+to
+                      1.1000000000e+00
+                      1.3000000000e+00
+using 5 steps
+
+>>>>> Vector parameter study evaluation for 0% along vector
+
+------------------------------
+Begin    CSDMS Evaluation    1
+------------------------------
+Parameters for evaluation 1:
+                     -3.0000000000e-01 x1
+                      2.0000000000e-01 x2
+
+blocking fork: rosenbrock params.in results.out
+
+Active response data for CSDMS evaluation 1:
+Active set vector = { 1 }
+                      2.9000000000e+00 y1
+
+
+>>>>> Vector parameter study evaluation for 20% along vector
+
+------------------------------
+Begin    CSDMS Evaluation    2
+------------------------------
+Parameters for evaluation 2:
+                     -2.0000000000e-02 x1
+                      4.2000000000DAKOTA execution time in seconds:
+  Total CPU        =       0.01 [parent =   0.005999, child =   0.004001]
+  Total wall clock =   0.089371
+           1.8646816000e+01 y1
+
+
+>>>>> Vector parameter study evaluation for 40% along vector
+
+------------------------------
+Begin    CSDMS Evaluation    3
+------------------------------
+Parameters for evaluation 3:
+                      2.6000000000e-01 x1
+                      6.4000000000e-01 x2
+
+blocking fork: rosenbrock params.in results.out
+
+Active response data for CSDMS evaluation 3:
+Active set vector = { 1 }
+                      3.3311776000e+01 y1
+
+
+>>>>> Vector parameter study evaluation for 60% along vector
+
+------------------------------
+Begin    CSDMS Evaluation    4
+------------------------------
+Parameters for evaluation 4:
+                      5.4000000000e-01 x1
+                      8.6000000000e-01 x2
+
+blocking fork: rosenbrock params.in results.out
+
+Active response data for CSDMS evaluation 4:
+Active set vector = { 1 }
+                      3.2519456000e+01 y1
+
+
+>>>>> Vector parameter study evaluation for 80% along vector
+
+------------------------------
+Begin    CSDMS Evaluation    5
+------------------------------
+Parameters for evaluation 5:
+                      8.2000000000e-01 x1
+                      1.0800000000e+00 x2
+
+blocking fork: rosenbrock params.in results.out
+
+Active response data for CSDMS evaluation 5:
+Active set vector = { 1 }
+                      1.6646176000e+01 y1
+
+
+>>>>> Vector parameter study evaluation for 100% along vector
+
+------------------------------
+Begin    CSDMS Evaluation    6
+------------------------------
+Parameters for evaluation 6:
+                      1.1000000000e+00 x1
+                      1.3000000000e+00 x2
+
+blocking fork: rosenbrock params.in results.out
+
+Active response data for CSDMS evaluation 6:
+Active set vector = { 1 }
+                      8.2000000000e-01 y1
+
+
+<<<<< Function evaluation summary (CSDMS): 6 total (6 new, 0 duplicate)
+
+<<<<< Iterator vector_parameter_study completed.
+<<<<< Environment execution completed.

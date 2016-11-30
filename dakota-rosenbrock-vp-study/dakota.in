@@ -1,0 +1,33 @@
+# Dakota input file
+environment
+  tabular_data
+    tabular_data_file = 'dakota.dat'
+
+method
+  vector_parameter_study
+    final_point = 1.1 1.3
+    num_steps = 5
+
+variables
+  continuous_design = 2
+    descriptors = 'x1' 'x2'
+    initial_point = -0.3 0.2
+
+interface
+  id_interface = 'CSDMS'
+  fork
+  analysis_driver = 'rosenbrock'
+  analysis_components = '/home/mapi8461/projects/AGU-2016/tmp/dakota.yaml'
+  parameters_file = 'params.in'
+  results_file = 'results.out'
+  work_directory
+    named 'run'
+    directory_tag
+    directory_save
+  file_save
+
+responses
+  response_functions = 1
+    response_descriptors = 'y1'
+  no_gradients
+  no_hessians

@@ -1,0 +1,38 @@
+method: vector_parameter_study
+
+analysis_driver: rosenbrock
+asynchronous: false
+auxiliary_files: []
+component: 
+configuration_file: dakota.yaml
+convergence_tolerance:
+data_file: dakota.dat
+descriptors: ['x1', 'x2']
+evaluation_concurrency: 2
+final_point: [1.1, 1.3]
+gradients: no_gradients
+hessians: no_hessians
+id_interface: CSDMS
+initial_point: [-0.3, 0.2]
+initialize_args: 
+input_file: dakota.in
+interface: fork
+lower_bounds:
+max_iterations:
+means:
+n_steps: 5
+output_file: dakota.out
+plugin: 
+response_descriptors: ['y1']
+response_files: []
+response_statistics: ['mean']
+responses: response_functions
+run_directory: .
+std_deviations:
+template_file: "dakota.yaml.dtmpl"
+upper_bounds:
+variables: continuous_design
+
+# Notes:
+# * The descriptors, final_point, initial_point, response_descriptors,
+#   and response_statistics parameters should be scalars or lists.
