@@ -1,23 +1,19 @@
 """A Dakotathon uncertainty quantification experiment with Hydrotrend.
 
-This experiment uses the `Sampling`_ method.
-
-Assess the effect of uncertain mean annual temperature and precipitation values.
-Approximately +/- 10 percent of their default values.
-Uniform distribution. Since I don't know.
-
-N = 100 samples are chosen from the T-P parameter space
-using Latin Hypercube Sampling.
-These samples are used as inputs to the Hydrotrend model.
-The model runs for a period of 10 years.
-A time series of daily Qs values are generated for the run duration.
-The statistic I've chosen to quantify the effect of the T-P sample
-is the median value of Qs over the run duration.
-Dakota gathers the 100 median Qs values
-and uses them to calculate UQ measures,
-including moments,
-95 percent confidence intervals,
-and a PDF and a CDF of the Qs values.
+This experiment uses the `Sampling`_ method to assess the effect of
+uncertain mean annual temperature and total annual precipitation
+values on the median value of suspended sediment load of the Waipaoa
+River over a 10-year interval. The temperature (T) and precipitation
+(P) values are assumed to be uniformly distributed random variables,
+with bounds set at +/- 10 percent from their default values. One
+hundred samples are chosen from the T-P parameter space using Latin
+hypercube sampling, then used as inputs to the Hydrotrend model. A
+time series of daily Qs values is generated for each 10-year
+run. Dakota calculates the median Qs value for each of the 100 runs
+and uses them to calculate moments, 95 percent confidence intervals,
+and a PDF and a CDF of the Qs values. From these measures, we can 
+quantify the probability that Qs exceeds a threshold value due to 
+uncertainty in the input T and P parameters.
 
 
 Example
@@ -38,7 +34,6 @@ Notes
 
 """
 import os
-import numpy as np
 from pymt.components import Sampling, Hydrotrend
 from dakotathon.utils import configure_parameters
 
@@ -48,7 +43,7 @@ model, dakota = Hydrotrend(), Sampling()
 experiment = {
     'component': type(model).__name__,
     'run_duration': 10,                # years
-    'auxiliary_files': 'HYDRO0.HYPS',  # the default Waipaoa hypsometry
+    'auxiliary_files': 'HYDRO0.HYPS',  # Waipaoa hypsometry
     'samples': 100,
     'sample_type': 'lhs',
     'seed': 17,
