@@ -14,12 +14,13 @@ model, dakota = Hydrotrend(), PolynomialChaos()
 
 experiment = {
     'component': type(model).__name__,
-    'run_duration': 365,               # days
+    'run_duration': 10,                # years
     'auxiliary_files': 'HYDRO0.HYPS',  # the default Waipaoa hypsometry
     'quadrature_order': 4,
     'samples': 10000,
     'seed': 17,
     'probability_levels': [0.05, 0.10, 0.33, 0.50, 0.67, 0.90, 0.95],
+    'response_levels': [5.0],
     'variance_based_decomp': True,
     'descriptors': ['starting_mean_annual_temperature',
                     'total_annual_precipitation'],

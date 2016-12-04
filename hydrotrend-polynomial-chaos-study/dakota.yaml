@@ -29,10 +29,10 @@ probability_levels: [0.05, 0.1, 0.33, 0.5, 0.67, 0.9, 0.95]
 quadrature_order: 4 
 response_descriptors: ['channel_exit_water_sediment~suspended__mass_flow_rate']
 response_files: []
-response_levels: []
+response_levels: [5.0]
 response_statistics: ['median']
 responses: response_functions
-run_directory: /home/mapi8461/projects/AGU-2016/tmp
+run_directory: /home/mapi8461/projects/AGU-2016/hydrotrend-polynomial-chaos-study
 sample_type: random
 samples: 10000
 seed: 17
