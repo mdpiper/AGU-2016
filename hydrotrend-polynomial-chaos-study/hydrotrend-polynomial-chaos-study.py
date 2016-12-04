@@ -5,7 +5,6 @@ requires Dakotathon and Hydrotrend installed as CSDMS components.
 
 """
 import os
-import numpy as np
 from pymt.components import PolynomialChaos, Hydrotrend
 from dakotathon.utils import configure_parameters
 
