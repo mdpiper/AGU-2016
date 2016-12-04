@@ -7,25 +7,17 @@ Approximately +/- 10 percent of their default values.
 Uniform distribution. Since I don't know.
 
 N = 100 samples are chosen from the T-P parameter space
-using MC sampling (the default).
+using Latin Hypercube Sampling.
 These samples are used as inputs to the Hydrotrend model.
-The model runs for a period of one year.
-A time series of Qs values are generated for the year.
+The model runs for a period of 10 years.
+A time series of daily Qs values are generated for the run duration.
 The statistic I've chosen to quantify the effect of the T-P sample
 is the median value of Qs over the run duration.
 Dakota gathers the 100 median Qs values
 and uses them to calculate UQ measures,
 including moments,
-a PDF and a CDF of Qs values,
-and local and global sensitivity indices,
-calculated through variance-based decomposition.
-
-Note that because I chose to use VBD,
-the model is run more than N = 100 times.
-In fact, VBD requires N * (M + 2) runs,
-where M is the number of uncertain variables, 2 in this case.
-So for this experiment,
-Hydrotrend was run 400 times!
+95 percent confidence intervals,
+and a PDF and a CDF of the Qs values.
 
 
 Example
@@ -55,12 +47,13 @@ model, dakota = Hydrotrend(), Sampling()
 
 experiment = {
     'component': type(model).__name__,
-    'run_duration': 365,               # days
+    'run_duration': 10,                # years
     'auxiliary_files': 'HYDRO0.HYPS',  # the default Waipaoa hypsometry
     'samples': 100,
+    'sample_type': 'lhs',
     'seed': 17,
     'probability_levels': [0.05, 0.10, 0.33, 0.50, 0.67, 0.90, 0.95],
-    'variance_based_decomp': True,
+    'response_levels': [5.0],
     'descriptors': ['starting_mean_annual_temperature',
                     'total_annual_precipitation'],
     'variable_type': 'uniform_uncertain',
@@ -81,5 +74,5 @@ dakota_parameters['template_file'] = dakota_tmpl_file
 dakota.setup(dakota_parameters['run_directory'], **dakota_parameters)
 
 dakota.initialize('dakota.yaml')
-# dakota.update()
-# dakota.finalize()
+dakota.update()
+dakota.finalize()

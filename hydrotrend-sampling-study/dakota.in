@@ -1,0 +1,37 @@
+# Dakota input file
+environment
+  tabular_data
+    tabular_data_file = 'dakota.dat'
+
+method
+  sampling
+    sample_type = lhs
+    samples = 100
+    seed = 17
+    probability_levels = 0.05 0.1 0.33 0.5 0.67 0.9 0.95
+    response_levels = 5.0
+
+variables
+  uniform_uncertain = 2
+    descriptors = 'starting_mean_annual_temperature' 'total_annual_precipitation'
+    lower_bounds = 12.8 1.4
+    upper_bounds = 15.8 1.8
+
+interface
+  id_interface = 'CSDMS'
+  fork
+  analysis_driver = 'dakota_run_component'
+  analysis_components = '/nas/data/mpiper/sampling-Qs/dakota.yaml'
+  parameters_file = 'params.in'
+  results_file = 'results.out'
+  work_directory
+    named 'run'
+    directory_tag
+    directory_save
+  file_save
+
+responses
+  response_functions = 1
+    response_descriptors = 'channel_exit_water_sediment~suspended__mass_flow_rate'
+  no_gradients
+  no_hessians
