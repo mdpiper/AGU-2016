@@ -41,13 +41,7 @@ def grid_samples(x, y, z):
     return (grid_x, grid_y, grid_z)
 
 
-def make_stacked_surface_plot(experiment_dir, outfile='surface_plot.png'):
-    dat_file = os.path.join(experiment_dir, 'dakota.dat')
-    dat = read_dat_file(dat_file)
-
-    T = dat[1,]
-    P = dat[2,]
-    Qs = dat[3,]
+def make_stacked_surface_plot(T, P, Qs, outfile='surface_plot.png'):
     gT, gP, gQs  = grid_samples(T, P, Qs)
 
     fig = plt.figure()
@@ -71,13 +65,7 @@ def make_stacked_surface_plot(experiment_dir, outfile='surface_plot.png'):
     plt.close()
 
 
-def make_contour_plot(experiment_dir, outfile='contour_plot.png'):
-    dat_file = os.path.join(experiment_dir, 'dakota.dat')
-    dat = read_dat_file(dat_file)
-
-    T = dat[1,]
-    P = dat[2,]
-    Qs = dat[3,]
+def make_contour_plot(T, P, Qs, outfile='contour_plot.png'):
     gT, gP, gQs  = grid_samples(T, P, Qs)
 
     fig = plt.figure()
@@ -99,12 +87,7 @@ def make_contour_plot(experiment_dir, outfile='contour_plot.png'):
     plt.close()
 
 
-def make_pdf_and_cdf_plot(experiment_dir, outfile='histogram_plot.png'):
-    dat_file = os.path.join(experiment_dir, 'dakota.dat')
-    dat = read_dat_file(dat_file)
-
-    Qs = dat[3,]
-
+def make_pdf_and_cdf_plot(Qs, outfile='histogram_plot.png'):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
@@ -122,6 +105,13 @@ def make_pdf_and_cdf_plot(experiment_dir, outfile='histogram_plot.png'):
 
 if __name__ == '__main__':
     experiment_dir = './hydrotrend-sampling-study'
-    make_stacked_surface_plot(experiment_dir)
-    make_contour_plot(experiment_dir)
-    make_pdf_and_cdf_plot(experiment_dir)
+    dat_file = os.path.join(experiment_dir, 'dakota.dat')
+    dat = read_dat_file(dat_file)
+
+    T = dat[1,]
+    P = dat[2,]
+    Qs = dat[3,]
+
+    make_stacked_surface_plot(T, P, Qs)
+    make_contour_plot(T, P, Qs)
+    make_pdf_and_cdf_plot(Qs)
