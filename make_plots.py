@@ -70,6 +70,36 @@ def make_stacked_surface_plot(experiment_dir, outfile='surface_plot.png'):
     plt.close()
 
 
+def make_contour_plot(experiment_dir, outfile='contour_plot.png'):
+    dat_file = os.path.join(experiment_dir, 'dakota.dat')
+    dat = read_dat_file(dat_file)
+
+    T = dat[1,]
+    P = dat[2,]
+    Qs = dat[3,]
+    gT, gP, gQs  = grid_samples(T, P, Qs)
+
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    c = ax.contourf(gT, gP, gQs, 10, cmap=plt.cm.YlGnBu_r, antialiased=True)
+    ax.scatter(T, P, s=10, c='w')
+    plt.title('Hydrotrend: T-P samples and $\overline{Qs}$ response')
+
+    # ax.set_ylim(PRANGE)
+    plt.locator_params(axis='y', nbins=5)
+    plt.locator_params(axis='x', nbins=7)
+    ax.set_xlabel(r'$T\ [^{o}C]$')
+    ax.set_ylabel('$P\ [m\ yr^{-1}]$')
+
+    cbar = plt.colorbar(c, shrink=0.75, aspect=25)
+    cbar.ax.set_ylabel('$Qs\ [kg\ s^{-1}]$')
+
+    plt.savefig(outfile, dpi=150)
+    plt.close()
+
+
 def make_pdf_and_cdf_plot():
     pass
 
@@ -77,4 +107,5 @@ def make_pdf_and_cdf_plot():
 if __name__ == '__main__':
     experiment_dir = '/Users/mpiper/projects/AGU-2016/hydrotrend-sampling-study'
     make_stacked_surface_plot(experiment_dir)
+    make_contour_plot(experiment_dir)
     make_pdf_and_cdf_plot()
