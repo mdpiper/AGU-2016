@@ -12,6 +12,7 @@ PRANGE = [1.4, 1.8]
 QSRANGE = [0.0, 6.0]
 
 plt.rcParams['mathtext.default'] = 'regular'
+cmap = plt.cm.YlGnBu_r
 
 
 def read_dat_header(dat_file):
@@ -79,15 +80,13 @@ def make_contour_plot(experiment_dir, outfile='contour_plot.png'):
     Qs = dat[3,]
     gT, gP, gQs  = grid_samples(T, P, Qs)
 
-
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    c = ax.contourf(gT, gP, gQs, 10, cmap=plt.cm.YlGnBu_r, antialiased=True)
+    c = ax.contourf(gT, gP, gQs, 10, cmap=cmap, antialiased=True)
     ax.scatter(T, P, s=10, c='w')
     plt.title('Hydrotrend: T-P samples and $\overline{Qs}$ response')
 
-    # ax.set_ylim(PRANGE)
     plt.locator_params(axis='y', nbins=5)
     plt.locator_params(axis='x', nbins=7)
     ax.set_xlabel(r'$T\ [^{o}C]$')
@@ -100,12 +99,29 @@ def make_contour_plot(experiment_dir, outfile='contour_plot.png'):
     plt.close()
 
 
-def make_pdf_and_cdf_plot():
-    pass
+def make_pdf_and_cdf_plot(experiment_dir, outfile='histogram_plot.png'):
+    dat_file = os.path.join(experiment_dir, 'dakota.dat')
+    dat = read_dat_file(dat_file)
+
+    Qs = dat[3,]
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    pdf, bins, patches = ax.hist(Qs, bins=18, normed=True, color=cmap(0.5))
+    cdf = np.cumsum(pdf)
+    cdf /= cdf.max()
+    ax.plot(bins[:-1], cdf, color=cmap(0.1))
+
+    ax.set_xlabel('$Qs\ [kg\ s^{-1}]$')
+    ax.set_ylabel('Probability')
+
+    plt.savefig(outfile, dpi=150)
+    plt.close()
 
 
 if __name__ == '__main__':
-    experiment_dir = '/Users/mpiper/projects/AGU-2016/hydrotrend-sampling-study'
+    experiment_dir = './hydrotrend-sampling-study'
     make_stacked_surface_plot(experiment_dir)
     make_contour_plot(experiment_dir)
-    make_pdf_and_cdf_plot()
+    make_pdf_and_cdf_plot(experiment_dir)
