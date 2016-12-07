@@ -5,16 +5,16 @@ uncertain mean annual temperature (*T*) and total annual precipitation
 (*P*) on the maximum value of suspended sediment concentration (*Cs*)
 in the Waipaoa River over 1000-year intervals. The *T* and *P* values
 are assumed to be uniformly distributed random variables, with bounds
-set at +/- 25 percent from their default values. One hundred samples
-are chosen from the *T-P* parameter space using Latin hypercube
-sampling and used as inputs to the Hydrotrend model. A time series of
-daily *Cs* values is generated for each 1000-year run. Dakota
-calculates the maximum *Cs* value for each of the 100 runs and uses
-them to calculate moments, 95 percent confidence intervals, and a PDF
-and a CDF of the response. From these measures, we can quantify the
-probability that *Cs* exceeds a threshold value due to uncertainty in
-the input *T* and *P* parameters, and from this calculate the return
-period of a hyperpycnal event.
+set approximately +/- 25 percent from their default values. One
+hundred samples are chosen from the *T-P* parameter space using Latin
+hypercube sampling and used as inputs to the Hydrotrend model. A time
+series of daily *Cs* values is generated for each 1000-year
+run. Dakota calculates the maximum *Cs* value for each of the 100 runs
+and uses them to calculate moments, 95 percent confidence intervals,
+and a PDF and a CDF of the response. From these measures, we can
+quantify the probability that *Cs* exceeds a threshold value due to
+uncertainty in the input *T* and *P* parameters, and from this
+calculate the return period of a hyperpycnal event.
 
 
 Example
@@ -54,8 +54,10 @@ experiment = {
     'descriptors': ['starting_mean_annual_temperature',
                     'total_annual_precipitation'],
     'variable_type': 'uniform_uncertain',
-    'lower_bounds': [10.7, 1.19],      # -25%
-    'upper_bounds': [17.8, 1.99],      # +25%
+    # 'lower_bounds': [10.7, 1.19],      # -25%
+    # 'upper_bounds': [17.8, 1.99],      # +25%
+    'lower_bounds': [10., 1.],
+    'upper_bounds': [20., 2.],
     'response_descriptors': 'channel_exit_water_sediment~suspended__mass_concentration',
     'response_statistics': 'max',
     }

@@ -17,7 +17,7 @@ initial_point:
 initialize_args: 
 input_file: dakota.in
 interface: fork
-lower_bounds: [10.7, 1.19]
+lower_bounds: [10.0, 1.0]
 max_iterations:
 means: [0.0]
 output_file: dakota.out
@@ -34,7 +34,7 @@ samples: 100
 seed: 17
 std_deviations: [1.0]
 template_file: "HYDRO.IN.dtmpl"
-upper_bounds: [17.8, 1.99]
+upper_bounds: [20.0, 2.0]
 variables: uniform_uncertain
 variance_based_decomp: False
 
