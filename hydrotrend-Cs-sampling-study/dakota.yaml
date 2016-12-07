@@ -1,0 +1,45 @@
+method: sampling
+
+analysis_driver: dakota_run_component
+asynchronous: false
+auxiliary_files: ['HYDRO0.HYPS']
+basis_polynomial_family: extended
+component: Hydrotrend
+configuration_file: dakota.yaml
+convergence_tolerance:
+data_file: dakota.dat
+descriptors: ['starting_mean_annual_temperature', 'total_annual_precipitation']
+evaluation_concurrency: 2
+gradients: no_gradients
+hessians: no_hessians
+id_interface: CSDMS 
+initial_point:
+initialize_args: 
+input_file: dakota.in
+interface: fork
+lower_bounds: [10.7, 1.19]
+max_iterations:
+means: [0.0]
+output_file: dakota.out
+plugin: 
+probability_levels: [0.05, 0.1, 0.33, 0.5, 0.67, 0.9, 0.95]
+response_descriptors: ['channel_exit_water_sediment~suspended__mass_concentration']
+response_files: []
+response_levels: [40.0]
+response_statistics: ['max']
+responses: response_functions
+run_directory: /nas/data/mpiper/sampling-Cs
+sample_type: lhs
+samples: 100
+seed: 17
+std_deviations: [1.0]
+template_file: "HYDRO.IN.dtmpl"
+upper_bounds: [17.8, 1.99]
+variables: uniform_uncertain
+variance_based_decomp: False
+
+# Notes:
+# * For uniform_uncertain variables, ignore means and std_deviations.
+# * The descriptors, lower_bounds, upper_bounds, means, std_deviations,
+#   probability_levels, response_levels, response_descriptors,
+#   and response_statistics parameters should be scalars or lists.
