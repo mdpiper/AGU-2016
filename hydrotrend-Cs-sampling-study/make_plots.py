@@ -93,16 +93,46 @@ def make_contour_plot(x, y, z, outfile='contour.png'):
 
 
 def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
+    fig, ax1 = plt.subplots()
 
-    pdf, bins, patches = ax.hist(z, bins=18, normed=True, color=cmap(0.5))
+    nbins = 21
+    bins = np.linspace(0, 50, nbins)
+    pdf, _, _ = ax1.hist(z, bins=bins, normed=True, color=cmap(0.3))
+    plt.title('Hydrotrend: max($C_s}$) response distribution')
+
+    ax1.set_ylim(0.0, 0.1)
+    ax1.set_xlabel('$C_s\ [kg\ m^{-1}]$')
+    ax1.set_ylabel('pdf')
+
     cdf = np.cumsum(pdf)
     cdf /= cdf.max()
-    ax.plot(bins[:-1], cdf, color=cmap(0.1))
+    ax2 = ax1.twinx()
+    ax2.plot(bins[:-1], cdf, color='r')
 
-    ax.set_xlabel('$C_s\ [kg\ m^{-1}]$')
-    ax.set_ylabel('Probability')
+    ax2.set_ylabel('cdf')
+
+    cs_mean = 20.31
+    cs_stdv = 6.74
+    cs_ci_lower = 18.97
+    cs_ci_upper = 21.65
+    top = ax2.get_ylim()[-1]
+    ymrk = 0.95*top
+    ytxt = 0.90*top
+    ax2.plot(cs_mean, ymrk, 'D', color=cmap(0.3), clip_on=False, markersize=10)
+    ax2.text(cs_mean, ytxt, '$\mu$', ha='center')
+    ax2.plot(cs_mean - cs_stdv, ymrk, '<', color=cmap(0.3), clip_on=False, markersize=15)
+    ax2.plot(cs_mean + cs_stdv, ymrk, '>', color=cmap(0.3), clip_on=False, markersize=15)
+    ax2.text(cs_mean - cs_stdv, ytxt, '$\sigma$', ha='center')
+    ax2.text(cs_mean + cs_stdv, ytxt, '$\sigma$', ha='center')
+    ax2.plot(cs_ci_lower, ymrk, 'o', color=cmap(0.3), clip_on=False)
+    ax2.plot(cs_ci_upper, ymrk, 'o', color=cmap(0.3), clip_on=False)
+
+    cs_thresh = 40.0
+    cs_thresh_value = 0.98
+    right = ax2.get_xlim()[-1]
+    ax2.plot([cs_thresh, cs_thresh], [0, cs_thresh_value], 'g:')
+    ax2.plot([cs_thresh, right], [cs_thresh_value, cs_thresh_value], 'g:')
+    ax2.text(0.95*right, 0.925*top, '0.98', ha='center', size=15)
 
     plt.savefig(outfile, dpi=150)
     plt.close()
