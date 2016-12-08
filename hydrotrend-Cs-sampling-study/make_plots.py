@@ -12,7 +12,7 @@ PRANGE = [ 1.,  2.]
 CSRANGE = [10., 45.0]
 
 plt.rcParams['mathtext.default'] = 'regular'
-cmap = plt.cm.YlGnBu_r
+cmap = plt.cm.magma
 
 
 def read_dat_header(dat_file):
@@ -74,7 +74,7 @@ def make_contour_plot(x, y, z, outfile='contour.png'):
 
     nlevels = 8
     clevels = np.linspace(CSRANGE[0], CSRANGE[1], nlevels)
-    c = ax.contourf(X, Y, Z, 10, cmap=cmap, antialiased=True, levels=clevels)
+    c = ax.contourf(X, Y, Z, 10, cmap=cmap, vmin=0.1, antialiased=True, levels=clevels)
     ax.scatter(x, y, s=10, c=cmap(0.9))
     plt.title('Hydrotrend: T-P samples and max($C_s}$) response')
 
@@ -97,7 +97,7 @@ def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
 
     nbins = 21
     bins = np.linspace(0, 50, nbins)
-    pdf, _, _ = ax1.hist(z, bins=bins, normed=True, color=cmap(0.3))
+    pdf, _, _ = ax1.hist(z, bins=bins, normed=True, color=cmap(0.4))
     plt.title('Hydrotrend: max($C_s}$) response distribution')
 
     ax1.set_ylim(0.0, 0.1)
@@ -107,7 +107,7 @@ def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
     cdf = np.cumsum(pdf)
     cdf /= cdf.max()
     ax2 = ax1.twinx()
-    ax2.plot(bins[:-1], cdf, color='r')
+    ax2.plot(bins[:-1], cdf, color='b')
 
     ax2.set_ylabel('cdf')
 
