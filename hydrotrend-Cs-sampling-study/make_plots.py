@@ -12,7 +12,7 @@ PRANGE = [ 1.,  2.]
 CSRANGE = [10., 45.0]
 
 plt.rcParams['mathtext.default'] = 'regular'
-cmap = plt.cm.magma
+cmap = plt.cm.PuOr_r
 
 
 def read_dat_header(dat_file):
@@ -117,21 +117,18 @@ def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
     cs_ci_upper = 21.65
     top = ax2.get_ylim()[-1]
     ymrk = 0.95*top
-    ytxt = 0.90*top
-    ax2.plot(cs_mean, ymrk, 'D', color=cmap(0.3), clip_on=False, markersize=10)
-    ax2.text(cs_mean, ytxt, '$\mu$', ha='center')
-    ax2.plot(cs_mean - cs_stdv, ymrk, '<', color=cmap(0.3), clip_on=False, markersize=15)
-    ax2.plot(cs_mean + cs_stdv, ymrk, '>', color=cmap(0.3), clip_on=False, markersize=15)
-    ax2.text(cs_mean - cs_stdv, ytxt, '$\sigma$', ha='center')
-    ax2.text(cs_mean + cs_stdv, ytxt, '$\sigma$', ha='center')
-    ax2.plot(cs_ci_lower, ymrk, 'o', color=cmap(0.3), clip_on=False)
-    ax2.plot(cs_ci_upper, ymrk, 'o', color=cmap(0.3), clip_on=False)
+    ax2.plot(cs_mean-cs_stdv, ymrk, '|', color=cmap(0.3), ms=15)
+    ax2.plot(cs_mean+cs_stdv, ymrk, '|', color=cmap(0.3), ms=15)
+    ax2.plot([cs_mean-cs_stdv, cs_mean+cs_stdv], [ymrk, ymrk], color=cmap(0.3), lw=0.5)
+    ax2.plot(cs_mean, ymrk, 's', color=cmap(0.3))
+    ax2.plot(cs_ci_lower, ymrk, '|', color=cmap(0.3), ms=10)
+    ax2.plot(cs_ci_upper, ymrk, '|', color=cmap(0.3), ms=10)
 
     cs_thresh = 40.0
     cs_thresh_value = 0.98
     right = ax2.get_xlim()[-1]
-    ax2.plot([cs_thresh, cs_thresh], [0, cs_thresh_value], 'g:')
-    ax2.plot([cs_thresh, right], [cs_thresh_value, cs_thresh_value], 'g:')
+    ax2.plot([cs_thresh, cs_thresh], [0, cs_thresh_value], color=cmap(0.9), lw=0.5)
+    ax2.plot([cs_thresh, right], [cs_thresh_value, cs_thresh_value], color=cmap(0.9), lw=0.5)
     ax2.text(0.95*right, 0.925*top, '0.98', ha='center', size=15)
 
     plt.savefig(outfile, dpi=150)
