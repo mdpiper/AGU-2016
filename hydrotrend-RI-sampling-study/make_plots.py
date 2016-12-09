@@ -85,7 +85,7 @@ def make_contour_plot(x, y, z, outfile='contour.png'):
     ax.set_ylabel('$P\ [m\ yr^{-1}]$')
 
     cbar = plt.colorbar(c, shrink=0.75, aspect=25)
-    cbar.ax.set_ylabel('Number of critical $C_s$ events [d]')
+    cbar.ax.set_ylabel('Critical $C_s$ event count [d]')
 
     plt.savefig(outfile, dpi=150)
     plt.close()
@@ -99,7 +99,7 @@ def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
     pdf, _, _ = ax1.hist(z, bins=bins, normed=True, color=cmap(0.4))
     plt.title('Hydrotrend: critical $C_s$ response distribution')
 
-    ax1.set_xlabel('Critical $C_s$ events [d]')
+    ax1.set_xlabel('Critical $C_s$ event count [d]')
     ax1.set_ylabel('pdf')
 
     cdf = np.cumsum(pdf)
