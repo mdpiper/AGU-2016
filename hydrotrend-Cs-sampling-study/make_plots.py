@@ -86,7 +86,7 @@ def make_contour_plot(x, y, z, outfile='contour.png'):
     ax.set_ylabel('$P\ [m\ yr^{-1}]$')
 
     cbar = plt.colorbar(c, shrink=0.75, aspect=25, extend='both')
-    cbar.ax.set_ylabel('$C_s\ [kg\ m^{-3}]$')
+    cbar.ax.set_ylabel('$max(C_s)\ [kg\ m^{-3}]$')
 
     plt.savefig(outfile, dpi=150)
     plt.close()
@@ -101,7 +101,7 @@ def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
     plt.title('Hydrotrend: max($C_s}$) response distribution')
 
     ax1.set_ylim(0.0, 0.1)
-    ax1.set_xlabel('$C_s\ [kg\ m^{-1}]$')
+    ax1.set_xlabel('$max(C_s)\ [kg\ m^{-1}]$')
     ax1.set_ylabel('pdf')
 
     cdf = np.cumsum(pdf)
@@ -117,12 +117,12 @@ def make_pdf_and_cdf_plot(z, outfile='histogram.png'):
     cs_ci_upper = 21.65
     top = ax2.get_ylim()[-1]
     ymrk = 0.95*top
-    ax2.plot(cs_mean-cs_stdv, ymrk, '|', color=cmap(0.3), ms=15)
-    ax2.plot(cs_mean+cs_stdv, ymrk, '|', color=cmap(0.3), ms=15)
-    ax2.plot([cs_mean-cs_stdv, cs_mean+cs_stdv], [ymrk, ymrk], color=cmap(0.3), lw=0.5)
+    ax2.plot(cs_mean-cs_stdv, ymrk, '|', color=cmap(0.3), ms=15, mew=1)
+    ax2.plot(cs_mean+cs_stdv, ymrk, '|', color=cmap(0.3), ms=15, mew=1)
+    ax2.plot([cs_mean-cs_stdv, cs_mean+cs_stdv], [ymrk, ymrk], color=cmap(0.3), lw=0.75)
     ax2.plot(cs_mean, ymrk, 's', color=cmap(0.3))
-    ax2.plot(cs_ci_lower, ymrk, '|', color=cmap(0.3), ms=10)
-    ax2.plot(cs_ci_upper, ymrk, '|', color=cmap(0.3), ms=10)
+    ax2.plot(cs_ci_lower, ymrk, '|', color=cmap(0.3), ms=10, mew=1)
+    ax2.plot(cs_ci_upper, ymrk, '|', color=cmap(0.3), ms=10, mew=1)
 
     cs_thresh = 40.0
     cs_thresh_value = 0.98
